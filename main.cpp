@@ -29,6 +29,9 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    list<Goat> trip;
+    int choice;
+
     return 0;
 }
 
@@ -63,12 +66,34 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
 }
 
 void display_trip(list<Goat> trip) {
+if (trip.empty()) {
+        cout << "No goats in the trip yet.\n";
+    }
 
-
+    cout << "\nCurrent Goats on the Trip:\n";
+    int i = 1;
+    for (const auto &g : trip) {
+        cout << "[" << i++ << "] " << g.get_name() 
+             << " (" << g.get_age() << ", " << g.get_color() << ")\n";
+    }
 }
 
 int select_goat(list<Goat> trip) {
+if (trip.empty()) {
+        cout << "No goats to delete.\n";
+        return -1;
+    }
 
+    display_trip(trip);
+    cout << "Select a goat number to delete: ";
+    int choice;
+    cin >> choice;
+
+    if (choice < 1 || choice > trip.size()) {
+        cout << "Invalid choice.\n";
+        return -1;
+    }
+    return;
 
 }
 
@@ -78,7 +103,6 @@ if (choice == -1) return;
 
 auto it = trip.begin();
 advance(it, choice - 1);
-cout << it->get_name() << " (" << it->get_age() << ", " << it->get_color() << ") removed from the trip./n";
-tripe.rase(it);
-
+cout << it->get_name() << " (" << it->get_age() << ", " << it->get_color() << ") removed from the trip.\n";
+trip.erase(it);
 }
