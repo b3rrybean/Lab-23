@@ -31,6 +31,15 @@ int main() {
 
     list<Goat> trip;
     int choice;
+    do {
+        choice = main_menu();
+        switch (choice) {
+            case 1: add_goat(trip, names, colors); break;
+            case 2: delete_goat(trip); break;
+            case 3: display_trip(trip); break;
+            case 4: cout << "Goodbye!\n"; break;
+        }
+    } while (choice != 4);
 
     return 0;
 }
@@ -68,6 +77,7 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
 void display_trip(list<Goat> trip) {
 if (trip.empty()) {
         cout << "No goats in the trip yet.\n";
+        return;
     }
 
     cout << "\nCurrent Goats on the Trip:\n";
@@ -93,11 +103,11 @@ if (trip.empty()) {
         cout << "Invalid choice.\n";
         return -1;
     }
-    return;
+    return choice;
 
 }
 
-void delete_goat(list<Goat> trip) {
+void delete_goat(list<Goat> &trip) {
 int choice = select_goat(trip);
 if (choice == -1) return;
 
