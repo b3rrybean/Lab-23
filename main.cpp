@@ -29,8 +29,12 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    return 0;
+}
+
+int main_menu() {
     int choice;
-    cout <<"/n --- Goat Manager 3001 ***/n";
+    cout <<"\n --- Goat Manager 3001 ***\n";
     cout << "[1] Add a goat\n";
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
@@ -38,15 +42,35 @@ int main() {
     cout << "Choice --> ";
     cin >> choice;
 
-    while (choice > 1 || choice > 4 || cin.fail()) {
+    while (choice < 1 || choice > 4 || cin.fail()) {
         cin.clear();
         cin.ignore(1000, '\n');
         cout << "Invalid choice. Please try again: ";
         cin >> choice;
     }
-
-
-
-    return 0;
+    return choice;
 }
 
+void add_goat(list<Goat> trip, string names[], string colors[]) {
+    int randName = rand() % SZ_NAMES;
+    int randColor = rand() % SZ_COLORS;
+    int randAge = rand() % (MAX_AGE + 1);
+
+
+
+}
+
+void display_trip(list<Goat> trip) {
+
+
+}
+
+int select_goat(list<Goat> trip) {
+
+
+}
+
+void delete_goat(list<Goat> trip) {
+
+
+}
