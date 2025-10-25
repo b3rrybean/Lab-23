@@ -99,7 +99,7 @@ if (trip.empty()) {
     int choice;
     cin >> choice;
 
-    if (choice < 1 || choice > trip.size()) {
+    if (choice < 1 || choice > static_cast<int>(trip.size())) {
         cout << "Invalid choice.\n";
         return -1;
     }
